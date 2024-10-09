@@ -7,17 +7,17 @@ UPDATE students SET Points = 500 WHERE Name='Basma'; #Increase the points of Bas
 UPDATE students SET Points = 100 WHERE Name='Alex'; #Decrease the points of Alex because he's late today
 
 CREATE TABLE graduates(
-    ID INTEGER  PRIMARY KEY AUTOINCREMENT,
-    Name  TEXT NOT NULL UNIQUE,
-    Age INTEGER,
-	Gender TEXT,
-	Points INTEGER,
-	Graduation TEXT
+    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, #ID, Integer, Not Null, Primary key, Auto incerement
+    Name  TEXT NOT NULL UNIQUE, #Name, Text, Not Null, Unique
+    Age INTEGER, #Age, Integer
+	Gender TEXT, #Gender, Text
+	Points INTEGER, #Points, Integer
+	Graduation TEXT #Graduation, Text that will point to the date of the graduation
 );
 
-INSERT INTO graduates(Name, Age, Gender, Points) SELECT Name, Age, Gender, Points FROM Students WHERE Students.Name='Layal';
-UPDATE graduates SET Graduation='08-09-2018' WHERE Name='Layal';
-DELETE FROM graduates WHERE Name='Layal';
+INSERT INTO graduates(Name, Age, Gender, Points) SELECT Name, Age, Gender, Points FROM students WHERE students.Name='Layal'; #Copy Layal's data from students to graduates
+UPDATE graduates SET Graduation='08-09-2018' WHERE Name='Layal'; #Add the graduation date previously mentioned to Layal's record in graduates
+DELETE FROM students WHERE Name='Layal'; #Remove Layal's record from students
 
 SELECT employees.name, employees.Company, companies.date FROM employees Inner join companies ON employees.Company=companies.name;
 SELECT employees.name FROM employees Inner join companies ON employees.Company=companies.name and companies.Date < 2000;
