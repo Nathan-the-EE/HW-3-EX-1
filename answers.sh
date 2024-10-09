@@ -23,8 +23,8 @@ SELECT employees.Name, employees.Company, companies.Date FROM employees Inner jo
 SELECT employees.Name FROM employees Inner join companies ON employees.Company=companies.Name and companies.Date < 2000; #Find the name of employees that work in companies made before 2000.
 SELECT companies.Name FROM companies Inner join employees ON employees.Company=companies.Name and employees.Role='Graphic Designer'; #Find the name of company that has a graphic designer.
 
-select name from students where points=(SELECT MAX(points) from students);
-select AVG(points) from students;
-select COUNT(Name) from students where points=500;
-select Name from students WHERE Name GLOB '*s*';
-select name from students ORDER BY points DESC;
+SELECT Name FROM students where points=(SELECT MAX(points) from students); #Find the person with the highest number of points in students
+SELECT AVG(points) FROM students; #Find the average of points in students
+select COUNT(Name) from students where points=500; #Find the number of students that have 500 points
+select Name from students WHERE Name GLOB '*s*'; #Find the names of students that contains 's'
+select Name from students ORDER BY points DESC; #Find all students based on the decreasing order of their points
